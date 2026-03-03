@@ -132,6 +132,7 @@ For detailed Fabric integration instructions, see [docs/fabric-integration.md](d
 - [Setup Guide](docs/setup-guide.md) — Prerequisites, app registration, RBAC permissions
 - [Fabric Integration](docs/fabric-integration.md) — OneLake shortcuts, Lakehouse configuration
 - [Architecture](docs/architecture.md) — Design decisions, API details, FOCUS schema
+- [Azure Pipeline](docs/azure-pipeline.md) — GitHub Actions workflow to run imports in Azure
 
 ## License
 
