@@ -3,6 +3,7 @@
 This guide deploys the standalone notebook artifact (`focus_single_pipeline.ipynb`) to your Azure environment using one Bicep file.
 
 - Bicep file: `infra/deploy-single-notebook.bicep`
+- Parameters profile: `infra/deploy-single-notebook.bicepparam`
 - Result: storage account + private blob container + uploaded notebook blob
 
 ## Prerequisites
@@ -26,6 +27,16 @@ az group create --name <resource-group> --location <region>
 ```
 
 ## Deploy
+
+Recommended (uses ready-to-run defaults):
+
+```bash
+az deployment group create \
+  --resource-group <resource-group> \
+  --parameters @infra/deploy-single-notebook.bicepparam
+```
+
+Explicit template call (for custom overrides):
 
 ```bash
 az deployment group create \
