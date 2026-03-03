@@ -1,0 +1,58 @@
+# Azure FOCUS Export Configuration
+# Copy this file to config.yaml and fill in your values.
+
+# Azure authentication
+auth:
+  # Options: "service_principal", "managed_identity", "default"
+  # - service_principal: Uses client_id + client_secret (for local/CI)
+  # - managed_identity: Uses Azure Managed Identity (for Azure-hosted environments)
+  # - default: Uses DefaultAzureCredential chain (tries MI, then env vars, then CLI, etc.)
+  method: "service_principal"
+  tenant_id: "<your-tenant-id>"
+  client_id: "<your-client-id>"
+  # For service_principal only. Can also be set via AZURE_CLIENT_SECRET env var.
+  client_secret: "<your-client-secret>"
+
+# Export scope — determines what billing data is exported
+scope:
+  # Options: "subscription", "billing_account"
+  type: "subscription"
+
+  # For subscription scope:
+  subscription_id: "<your-subscription-id>"
+
+  # For billing_account scope (uncomment and fill in):
+  # billing_account_id: "<your-billing-account-id>"
+
+# Storage destination (ADLS Gen2 storage account)
+storage:
+  subscription_id: "<storage-subscription-id>"
+  resource_group: "<resource-group-name>"
+  account_name: "<storage-account-name>"
+  container: "cost-exports"
+  root_folder: "focus"
+
+# Export settings
+export:
+  # Number of months of historical data to seed (max ~36 for most accounts)
+  history_months: 36
+  # Prefix for export resource names in Azure
+  export_name_prefix: "focus-export"
+  # Daily granularity for cost data
+  granularity: "Daily"
+  # Split large files into partitions with a manifest.json
+  partition_data: true
+  # Output format: Parquet (recommended) or Csv
+  format: "Parquet"
+  # Compression: snappy (for Parquet) or gzip (for CSV)
+  compression: "snappy"
+  # Overwrite previous export data for the same period
+  overwrite: true
+  # HTTP request timeout for Exports API calls
+  request_timeout_seconds: 90
+  # Poll interval used when checking export run status
+  monitor_poll_interval_seconds: 45
+  # Max wait for a single export run before timing out locally
+  monitor_max_wait_seconds: 10800
+  # Delay between create/run calls to reduce throttling pressure
+  throttle_delay_seconds: 8

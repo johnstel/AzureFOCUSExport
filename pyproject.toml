@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "azure-focus-export"
+version = "0.1.0"
+description = "Export Azure billing data in FOCUS format to ADLS Gen2 for Microsoft Fabric reporting"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "AGPL-3.0-only"}
+
+dependencies = [
+    "azure-identity>=1.15.0",
+    "requests>=2.31.0",
+    "click>=8.1.0",
+    "pyyaml>=6.0",
+    "tenacity>=8.2.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+azure-focus-export = "azure_focus_export.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
