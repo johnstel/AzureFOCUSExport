@@ -133,6 +133,7 @@ For detailed Fabric integration instructions, see [docs/fabric-integration.md](d
 - [Fabric Integration](docs/fabric-integration.md) — OneLake shortcuts, Lakehouse configuration
 - [Architecture](docs/architecture.md) — Design decisions, API details, FOCUS schema
 - [Azure Pipeline](docs/azure-pipeline.md) — GitHub Actions workflow to run imports in Azure
+- [Bicep Notebook Deployment](docs/bicep-deploy-notebook.md) — Deploy the standalone notebook artifact to Azure
 
 ## License
 
