@@ -134,6 +134,7 @@ For detailed Fabric integration instructions, see [docs/fabric-integration.md](d
 - [Architecture](docs/architecture.md) — Design decisions, API details, FOCUS schema
 - [Azure Pipeline](docs/azure-pipeline.md) — GitHub Actions workflow to run imports in Azure
 - [Bicep Notebook Deployment](docs/bicep-deploy-notebook.md) — Deploy the standalone notebook artifact to Azure (includes ready-to-run `.bicepparam` profile)
+- [Runnable Notebook Deployment](docs/bicep-runnable-notebook.md) — One-step ACI + Jupyter deployment with immediate notebook URL
 
 ## License
 
